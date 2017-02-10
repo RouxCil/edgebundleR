@@ -37,14 +37,14 @@
       nodes.forEach(function(d) {
         if (d.imports) {
           if(typeof d.imports.forEach === 'function'){
-          d.imports.forEach(function(i) {
-          imports.push({source: map[d.name], target: map[i]});
+          d.imports.forEach(function(i,j) {
+          imports.push({source: map[d.name], target: map[i], lty: d.lty[j], opacity: d.opacity[j] });
         })
         } else {
           // if there's only one import in d.imports then you need to do
           // something different because the .forEach attribute doesn't
           // exist:
-          imports.push({source: map[d.name], target: map[d.imports]});
+          imports.push({source: map[d.name], target: map[d.imports], lty: d.lty, opacity: d.opacity});
         };
         };
       });

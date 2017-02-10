@@ -28,12 +28,22 @@ edgeToJSON_igraph = function(graph){
     vertices$name = as.character(sort(unique(unlist(edges))))
   }
   imports <- NULL
+  lty <- NULL
+  opacity <- NULL
   # get all attributes if defined in vertices of the igraph
   output <- apply(
     vertices,MARGIN=1,function(vtx){
       name <- vtx[["name"]]
-      if(any(edges[,1]==name)) imports = as.vector(edges[edges[,1]==name,2])
-      c(vtx,imports=list(imports))
+      if(any(edges[,1]==name)) {
+        imports = as.vector(edges[edges[,1]==name,2])
+        if(any(names(edges)=="lty")) { 
+          lty = as.vector(edges[edges[,1]==name,"lty"])
+          } else lty = rep("1,0",length(imports))
+        if(any(names(edges)=="opacity")) {
+          opacity = as.vector(edges[edges[,1]==name,"opacity"])
+          } else opacity = rep(0.3,length(imports))
+      }
+      c(vtx,imports=list(imports),lty=list(lty),opacity=list(opacity))
     }
   )
   output <- unname(output)

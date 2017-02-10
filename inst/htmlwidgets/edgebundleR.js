@@ -69,6 +69,8 @@ HTMLWidgets.widget({
     links = packages.imports(nodes);
     splines = bundle(links);
 
+    console.log(links)
+
     var path = svg.selectAll("path.link")
                 .data(links)
                 .enter().append("path")
@@ -76,6 +78,8 @@ HTMLWidgets.widget({
                   return "link source-" + d.source.key + " target-" + d.target.key;
                 })
                 .attr("d", function(d, i) { return line(splines[i]); })
+                .attr("stroke-dasharray", function(d) { return d.lty; })
+                .style("stroke-opacity", function(d) { return d.opacity; })
                 .style("stroke", function(d){
                   if(d.source.color) return d.source.color;
                   /*if(!xin.directed) return 'steelblue';*/
