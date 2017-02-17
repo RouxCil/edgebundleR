@@ -17,7 +17,7 @@
   fill: #fff;
 }
 .edgebundleR .link.source {
-  stroke-opacity: 1;
+  stroke-opacity: 1 !important;
   stroke-width: 2px;
   stroke: #d62728;
 }
@@ -30,7 +30,7 @@
   font-weight: 800;
 }
 .edgebundleR .link.target {
-  stroke-opacity: 1;
+  stroke-opacity: 1 !important;
   stroke-width: 2px;
   stroke: #d62728; /*#2ca02c;*/
 }
