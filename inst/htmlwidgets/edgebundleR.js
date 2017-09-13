@@ -80,8 +80,9 @@ HTMLWidgets.widget({
                 .attr("d", function(d, i) { return line(splines[i]); })
                 .attr("stroke-dasharray", function(d) { return d.lty; })
                 .style("stroke-opacity", function(d) { return d.opacity; })
+                .style('stroke-width', function(d) { if(d.target.bold=='y') return 2; })
                 .style("stroke", function(d){
-                  if(d.source.color) return d.source.color;
+                  if(d.source.colorb) return d.source.colorb;
                   /*if(!xin.directed) return 'steelblue';*/
                 });
 
@@ -101,7 +102,8 @@ HTMLWidgets.widget({
       .style("fill", function(d){
         if(d.color) return d.color;
       })
-      .text(function(d) { return d.key; })
+      .style('font-weight', function(d) { if(d.bold=='y') return 800; })
+      .text(function(d) { return d.vertice_names; })
       .on("mouseover", mouseover)
       .on("mouseout", mouseout)
               .append("svg:title")
