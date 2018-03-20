@@ -82,7 +82,7 @@ HTMLWidgets.widget({
                 .style("stroke-opacity", function(d) { return d.opacity; })
                 .style('stroke-width', function(d) { if(d.target.bold=='y') return 2; })
                 .style("stroke", function(d){ if(d.source.colorb == 'black'|| d.target.colorb == 'black') return 'black';
-                                              if(d.soutce.colorb != 'black' && d.target.colorb != 'black') return 'lightgray'; 
+                                              if(d.source.colorb != 'black' && d.target.colorb != 'black') return 'lightgray'; 
                   /*if(!xin.directed) return 'steelblue';*/
                 });
 
