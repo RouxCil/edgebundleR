@@ -81,9 +81,7 @@ HTMLWidgets.widget({
                 .attr("stroke-dasharray", function(d) { return d.lty; })
                 .style("stroke-opacity", function(d) { return d.opacity; })
                 .style('stroke-width', function(d) { if(d.target.bold=='y') return 2; })
-                .style("stroke", function(d){
-                  if(d.source.colorb == 'black' && d.target.colorb == 'black) return d.source.colorb;
-                  if(d.source.colorb=='lightgray'|| d.target.colorb) return 'lightgray';
+                .style("stroke", function(d){return d.source.colorb;
                   /*if(!xin.directed) return 'steelblue';*/
                 });
 
