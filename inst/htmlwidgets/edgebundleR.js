@@ -83,6 +83,7 @@ HTMLWidgets.widget({
                 .style('stroke-width', function(d) { if(d.target.bold=='y') return 2; })
                 .style("stroke", function(d){
                   if(d.source.colorb) return d.source.colorb;
+                  if(d.target.colorb=='black') return d.target.colorb;
                   /*if(!xin.directed) return 'steelblue';*/
                 });
 
