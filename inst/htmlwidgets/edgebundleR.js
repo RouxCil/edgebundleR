@@ -69,7 +69,7 @@ HTMLWidgets.widget({
     links = packages.imports(nodes);
     splines = bundle(links);
 
-    console.log(classes)
+    console.log(xin.json_real)
     console.log(links)
 
     var path = svg.selectAll("path.link")
